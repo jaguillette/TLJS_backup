@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeline JS Embed Backup</title>
+    <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+    <script src="js/timeline-min.js"></script>
+    <div id="timeline-embed" style="width: 100%; height: 600px"></div>
+    <script type="text/javascript">
+    
+    var additionalOptions = {
+        script_path: '/js'
+    }
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const sheet_id = params['id'];
+    var spreadsheet_url = 'https://docs.google.com/spreadsheets/d/' + sheet_id + '/pubhtml';
+
+    timeline = new TL.Timeline(
+        'timeline-embed', 
+        spreadsheet_url
+    )
+    </script>
+</body>
+</html>
